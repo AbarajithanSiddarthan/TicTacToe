@@ -1,0 +1,10 @@
+.board{
+    width: 50%;
+    height: 200px;
+}
+:host ::ng-deep app-square{
+    display: inline-flex;
+    width: 30%;
+    height: 30%;
+    border: 1px solid black;
+}

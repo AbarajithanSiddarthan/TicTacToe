@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-square',
@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
-
-  constructor() { }
+  @Input() position:number;
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
