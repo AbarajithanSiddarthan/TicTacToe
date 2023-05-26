@@ -1,3 +1,3 @@
 <div class="board">
-    <app-square [position] = i *ngFor="let item of count;let i = index"></app-square>
+    <app-square [position] = i [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
 </div>

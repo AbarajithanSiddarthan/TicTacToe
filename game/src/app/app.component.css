@@ -1,6 +1,8 @@
 .board{
     width: 50%;
     height: 200px;
+    margin-top: 38px;
+    margin-left: 21px;
 }
 :host ::ng-deep app-square{
     display: inline-flex;
