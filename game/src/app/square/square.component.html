@@ -1,1 +1,1 @@
-<button (click)="playerClick()" class="btn btn-primary btn-lg">{{player}}</button>
+<button [ngClass]="{grey:this.player == 'X',green:this.player == 'Y'}" (click)="playerClick()" class="btn btn-primary btn-lg">{{player}}</button>
