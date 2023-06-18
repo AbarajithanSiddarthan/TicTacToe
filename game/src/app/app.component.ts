@@ -72,7 +72,7 @@ export class AppComponent {
       })
     }
     let result = false;
-    if(checkList.length <= 3){
+    if(checkList.length <= 4){
       for(const item of checkList){
         let succArr = item.filter(id => inputArr.includes(id));
         if(succArr.length == 3){
