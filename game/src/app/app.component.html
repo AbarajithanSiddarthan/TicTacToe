@@ -1,12 +1,19 @@
 <div class="board">
-    <app-square [position] = i [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
+    <app-square [currPosition] = 'i' [selectedBoxes] = 'userInputs' [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
 </div>
 
 
 <div *ngIf="success">
-      {{player}} wins
+    {{player}} wins
+    <div>
+        GAME ENDS
+    </div>
 </div>
 
 <div *ngIf="draw">
     Game Draw
+</div>
+
+<div *ngIf="warning">
+    Illegal Move
 </div>

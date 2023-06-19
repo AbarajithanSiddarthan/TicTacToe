@@ -6,19 +6,27 @@ import { Component, Input, OnInit, Output,EventEmitter,AfterViewInit } from '@an
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
-  @Input() position:number;
+  @Input() selectedBoxes:any;
+  @Input() currPosition:number;
   @Input() turn:number
   @Output() userClicked = new EventEmitter();
   player: string='';
   constructor() {
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  playerClick(){
-     this.player = this.turn % 2 == 0 ? 'X' : 'Y';
-     this.userClicked.emit(this.player)
+  playerClick() {
+    let wrong = false
+    if(this.selectedBoxes.includes(this.currPosition)){
+      wrong = true;
+    }
+    else {
+      this.player = this.turn % 2 == 0 ? 'X' : 'Y';
+    }
+    let status = {player:this.player,check:wrong}
+    this.userClicked.emit(status)
   }
 
 }

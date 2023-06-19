@@ -20,6 +20,8 @@ export class AppComponent {
   yCheckIndexes = [];
   xSuccess: any;
   ySuccess: any;
+  userInputs: any = [];
+  warning:boolean = false;
 
   constructor(){
     console.log(this.succCombinations);
@@ -27,26 +29,33 @@ export class AppComponent {
     this.ySuccess = cloneDeep(this.succCombinations);
   }
 
-  calculate(event,index){
+  calculate(event, index) {
+    let player = event.player;
+    let check = event.check;
+    this.warning = check == true ? true : false;
+    if(this.warning == true){
+      return;
+    }
+    this.userInputs.push(index)
     let res;
     let getAns = false;
-    if(event == 'X'){
+    if (player == 'X') {
       this.xCheckIndexes.push(index);
-      res = this.toCalculateResult(index,event,this.xSuccess,this.ySuccess);
+      res = this.toCalculateResult(index, player, this.xSuccess, this.ySuccess);
       getAns = res;
     }
-    else{
+    else {
       this.yCheckIndexes.push(index);
-      res = this.toCalculateResult(index,event,this.ySuccess,this.xSuccess);
+      res = this.toCalculateResult(index,player,this.ySuccess,this.xSuccess);
       getAns = res;
     }
     this.start++;
     if(this.start > 4 && getAns == true){
-        if(event == 'X'){
+        if(player == 'X'){
           this.success = true;
           this.player = 'X';
         }
-        else if(event == 'Y'){
+        else if(player == 'Y'){
           this.success = true;
           this.player = 'Y';
         }
