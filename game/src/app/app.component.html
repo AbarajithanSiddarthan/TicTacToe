@@ -1,5 +1,5 @@
 <div class="board">
-    <app-square [currPosition] = 'i' [selectedBoxes] = 'userInputs' [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
+    <app-square   [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
 </div>
 
 

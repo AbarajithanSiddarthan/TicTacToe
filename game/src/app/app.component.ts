@@ -20,7 +20,6 @@ export class AppComponent {
   yCheckIndexes = [];
   xSuccess: any;
   ySuccess: any;
-  userInputs: any = [];
   warning:boolean = false;
 
   constructor(){
@@ -36,7 +35,6 @@ export class AppComponent {
     if(this.warning == true){
       return;
     }
-    this.userInputs.push(index)
     let res;
     let getAns = false;
     if (player == 'X') {

@@ -7,7 +7,6 @@ import { Component, Input, OnInit, Output,EventEmitter,AfterViewInit } from '@an
 })
 export class SquareComponent implements OnInit {
   @Input() selectedBoxes:any;
-  @Input() currPosition:number;
   @Input() turn:number
   @Output() userClicked = new EventEmitter();
   player: string='';
@@ -19,7 +18,7 @@ export class SquareComponent implements OnInit {
 
   playerClick() {
     let wrong = false
-    if(this.selectedBoxes.includes(this.currPosition)){
+    if(this.player != ""){
       wrong = true;
     }
     else {
