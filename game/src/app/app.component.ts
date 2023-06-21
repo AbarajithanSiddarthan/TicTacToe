@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { cloneDeep } from 'lodash';
+import { Observable, interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +22,15 @@ export class AppComponent {
   xSuccess: any;
   ySuccess: any;
   warning:boolean = false;
-
-  constructor(){
+  gameStart: boolean = true;
+  playerTitle = 'X';
+  constructor() {
     console.log(this.succCombinations);
     this.xSuccess = cloneDeep(this.succCombinations);
     this.ySuccess = cloneDeep(this.succCombinations);
+    const countdownDuration = 60; // Countdown duration in seconds
+
+   
   }
 
   calculate(event, index) {
@@ -48,6 +53,7 @@ export class AppComponent {
       getAns = res;
     }
     this.start++;
+    this.playerTitle = this.start % 2 == 0 ? 'X' : 'Y';
     if(this.start > 4 && getAns == true){
         if(player == 'X'){
           this.success = true;
@@ -57,9 +63,11 @@ export class AppComponent {
           this.success = true;
           this.player = 'Y';
         }
+        this.gameStart = false;
     }
     else if(this.start == 9){
-          this.draw = true
+          this.draw = true;
+          this.gameStart = false;
     } 
   }
 
@@ -98,3 +106,4 @@ export class AppComponent {
     }
   }
 }
+

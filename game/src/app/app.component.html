@@ -1,3 +1,6 @@
+<div *ngIf="gameStart">
+     Player {{playerTitle}} turn
+</div>
 <div class="board">
     <app-square   [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
 </div>
