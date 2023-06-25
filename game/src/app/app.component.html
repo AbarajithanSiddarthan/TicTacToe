@@ -1,22 +1,22 @@
-<div class="head pl-4 pt-3" *ngIf="gameStart">
-     Current Player: {{playerTitle}} 
-</div>
-<div class="board">
-    <app-square   [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
-</div>
-
-
-<div *ngIf="success">
-    {{player}} wins
-    <div>
-        GAME ENDS
+    <div class="head pl-4 pt-3" *ngIf="gameStart">
+        Current Player: {{playerTitle}} 
     </div>
-</div>
+    <div class="board">
+        <app-square   [turn] = "start" (userClicked)="calculate($event,i)" *ngFor="let item of count;let i = index"></app-square>
+    </div>
 
-<div *ngIf="draw">
-    Game Draw
-</div>
 
-<div *ngIf="warning">
-    Illegal Move
-</div>
+    <div class="pl-4" *ngIf="success">
+        {{player}} wins
+        <div>
+            GAME ENDS
+        </div>
+    </div>
+
+    <div class="pl-4" *ngIf="draw">
+        Game Draw
+    </div>
+
+    <div class="pl-4 warning" *ngIf="warning">
+        WARNING:Illegal Move
+    </div>
