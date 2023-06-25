@@ -1,6 +1,9 @@
 .btn-lg{
-    width: 100%;
     border-radius: 0;
+    /* display: inline-flex; */
+    width: 30%;
+    height: 30%;
+    border: 1px solid black;
 }
 .red{
     background-color: red;
@@ -8,5 +11,4 @@
 .green{
     background-color: green;
 }
-
   

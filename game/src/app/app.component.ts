@@ -28,9 +28,6 @@ export class AppComponent {
     console.log(this.succCombinations);
     this.xSuccess = cloneDeep(this.succCombinations);
     this.ySuccess = cloneDeep(this.succCombinations);
-    const countdownDuration = 60; // Countdown duration in seconds
-
-   
   }
 
   calculate(event, index) {
